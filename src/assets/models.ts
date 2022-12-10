@@ -8,3 +8,10 @@ export interface Movie {
   poster_url: string;
   categories: string[];
 }
+
+export interface MoviesList {
+  count: number;
+  next: string;
+  previous: string;
+  results: Movie[];
+}
