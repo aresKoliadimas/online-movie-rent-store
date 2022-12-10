@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/assets/models';
 import moviesJson from '../../assets/movies.json';
 
@@ -7,10 +7,10 @@ import moviesJson from '../../assets/movies.json';
   templateUrl: './movies-list.component.html',
   styleUrls: ['./movies-list.component.scss'],
 })
-export class MoviesListComponent {
+export class MoviesListComponent implements OnInit {
   movies: Movie[] = [];
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.movies = [...moviesJson.results];
   }
 }
