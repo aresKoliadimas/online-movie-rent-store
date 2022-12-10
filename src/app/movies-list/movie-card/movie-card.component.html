@@ -1,11 +1,5 @@
-<div class="movie-card-wrapper">
-  <div>
-    <div class="poster-wrapper">
-      <img [src]="movie.poster_url" width="200px" height="300px" />
-    </div>
-    <!-- <div class="icon-bar">
-      <fa-icon [icon]="faFav" (click)="onRentClick()"></fa-icon>
-              <fa-icon [icon]="faWatched" (click)="onReturnClick()"></fa-icon>
-    </div> -->
+<div class="movie-card-wrapper" (click)="openMovieModal(movie)">
+  <div class="poster-wrapper">
+    <img [src]="movie.poster_url" width="200px" height="300px" />
   </div>
 </div>
