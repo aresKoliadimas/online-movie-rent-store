@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/assets/models';
 import moviesJson from '../../assets/movies.json';
+import { MoviesService } from '../movies.service';
 
 @Component({
   selector: 'app-movies-list',
@@ -10,7 +11,12 @@ import moviesJson from '../../assets/movies.json';
 export class MoviesListComponent implements OnInit {
   movies: Movie[] = [];
 
+  constructor(private moviesService: MoviesService) {}
+
   ngOnInit(): void {
+    // this.moviesService
+    //   .getMovies()
+    //   .subscribe((moviesList) => console.log(moviesList));
     this.movies = [...moviesJson.results];
   }
 }
