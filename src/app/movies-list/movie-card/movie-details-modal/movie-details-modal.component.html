@@ -1,1 +1,27 @@
-<p>movie-details-modal works!</p>
+<header>
+  <div id="header-wrapper">
+    <h1>{{ movie.title }}</h1>
+    <button (click)="onModalClose()" title="Close">X</button>
+  </div>
+  <div id="num-details">
+    <span>{{ movie.pub_date }}</span> &nbsp;&#x2022;&nbsp;
+    <span *ngFor="let category of movie.categories">{{ category }}&nbsp;</span>
+    &nbsp;&#x2022;&nbsp;
+    <span>{{ hours }}h {{ movie.duration % 60 }}m</span>
+  </div>
+</header>
+<div id="details-wrapper">
+  <img src="{{ movie.poster_url }}" alt="movie_poster" id="movie-poster" />
+  <div id="description-wrapper">
+    <h2>Description</h2>
+    <p>{{ movie.description }}</p>
+    <hr />
+    <div>
+      Score: <span>{{ stars }}</span>
+    </div>
+  </div>
+</div>
+<footer>
+  <button (click)="onModalClose()">Rent It</button>
+  <button (click)="onModalClose()">Return It</button>
+</footer>
