@@ -1,1 +1,9 @@
-<p>movies-list works!</p>
+<div class="movies-list-wrapper">
+  <h3 *ngIf="!movies.length">Loading...</h3>
+  <div *ngIf="movies && movies.length">
+    <app-movie-card
+      *ngFor="let movie of movies"
+      [movie]="movie"
+    ></app-movie-card>
+  </div>
+</div>
