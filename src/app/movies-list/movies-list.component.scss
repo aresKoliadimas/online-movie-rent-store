@@ -1,14 +1,12 @@
 .movies-list-wrapper {
-  margin-top: 20vh;
   padding: 20px;
   display: flex;
-  align-items: center;
-  gap: 25px;
+  justify-content: space-around;
 }
 
-.movies {
+.movies-list {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 15px;
+  gap: 1.5vw;
 }
