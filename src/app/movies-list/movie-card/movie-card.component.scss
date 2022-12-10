@@ -1,4 +1,4 @@
-.movie-tile-wrapper {
+.movie-card-wrapper {
   max-width: 200px;
   max-height: 300px;
 
@@ -11,18 +11,18 @@
     }
   }
 
-  .icon-bar {
-    background-color: rgba(0, 0, 0, 0.4);
-    position: relative;
-    bottom: 29px;
-    display: flex;
-    justify-content: space-around;
-    gap: 5px;
-    overflow: hidden;
-  }
+  // .icon-bar {
+  //   background-color: rgba(0, 0, 0, 0.4);
+  //   position: relative;
+  //   bottom: 29px;
+  //   display: flex;
+  //   justify-content: space-around;
+  //   gap: 5px;
+  //   overflow: hidden;
+  // }
 
-  .icon-bar:hover {
-    bottom: 29px;
-    transform: scale(1);
-  }
+  // .icon-bar:hover {
+  //   bottom: 29px;
+  //   transform: scale(1);
+  // }
 }
