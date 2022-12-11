@@ -9,6 +9,8 @@ import { MovieDetailsModalComponent } from './movies-list/movie-card/movie-detai
 import { HeaderComponent } from './header/header.component';
 import { IonicModule } from '@ionic/angular';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { HttpClientModule } from '@angular/common/http';
     MovieCardComponent,
     MovieDetailsModalComponent,
     HeaderComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     IonicModule.forRoot(),
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
