@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/assets/models';
-import moviesJson from '../../assets/movies.json';
 import { MoviesService } from '../movies.service';
 
 @Component({
@@ -14,9 +13,8 @@ export class MoviesListComponent implements OnInit {
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
-    // this.moviesService
-    //   .getMovies()
-    //   .subscribe((moviesList) => console.log(moviesList));
-    this.movies = [...moviesJson.results];
+    this.moviesService
+      .getMovies()
+      .subscribe((moviesList) => (this.movies = moviesList.results));
   }
 }
