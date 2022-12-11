@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MoviesService } from '../movies.service';
+import { LoginCreds } from '../shared/models';
+import { MoviesService } from '../shared/movies.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent {
 
   constructor(
     private fBuilder: FormBuilder,
-    private mService: MoviesService,
+    private service: MoviesService,
     private router: Router
   ) {
     this.form = this.fBuilder.group({
@@ -25,7 +26,11 @@ export class LoginComponent {
   login() {
     const values = this.form.value;
     if (values.username && values.password) {
-      this.mService.login(values.username, values.password).subscribe(() => {
+      const loginCreds: LoginCreds = {
+        username: values.username,
+        password: values.password,
+      };
+      this.service.login(loginCreds).subscribe(() => {
         this.router.navigateByUrl('/');
       });
     }

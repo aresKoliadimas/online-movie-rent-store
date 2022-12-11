@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Movie } from 'src/assets/models';
+import { Movie } from 'src/app/shared/models';
 
 @Component({
   selector: 'app-movie-details-modal',
