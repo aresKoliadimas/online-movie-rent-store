@@ -3,19 +3,41 @@ import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { MoviesList } from 'src/assets/models';
 
+export interface AuthResult {
+  access: string;
+  refresh: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class MoviesService {
   private readonly proxy = 'https://cors-anywhere.herokuapp.com/';
-  private readonly endpoint = 'http://3.235.214.44:8000/rent-store/';
-  private readonly token =
-    'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjcwNzU3MTY3LCJqdGkiOiIwNjYyM2UxZDRjYWY0NWZhYWU4NzA0NGU1YzNlYzc2ZiIsInVzZXJfaWQiOjIxLCJpc19hZG1pbiI6ZmFsc2V9.hC5xCtpxsFfUD__iaHf1HAm5T65BoBb8npYhSxC3D8g';
-
+  private readonly endpoint = this.proxy + 'http://3.235.214.44:8000/';
+  private readonly token = 'Bearer ' + localStorage.getItem('token');
   constructor(private http: HttpClient) {}
 
+  login(username: String, password: string) {
+    return this.http
+      .post<AuthResult>(this.endpoint + 'auth/login/', {
+        username,
+        password,
+      })
+      .pipe(tap((res) => this.setSession(res)));
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('id');
+  }
+
+  private setSession(authResult: AuthResult) {
+    localStorage.setItem('token', authResult.access);
+    localStorage.setItem('id', 'user');
+  }
+
   getMovies(): Observable<MoviesList> {
-    return this.http.get<MoviesList>(this.proxy + this.endpoint + 'movies', {
+    return this.http.get<MoviesList>(this.endpoint + 'rent-store/movies/', {
       headers: {
         Authorization: this.token,
       },
