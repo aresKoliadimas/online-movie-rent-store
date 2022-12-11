@@ -1,7 +1,23 @@
 .header-wrapper {
   font-family: Georgia, "Times New Roman", Times, serif;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: ". titl prof";
   height: 15vh;
+
+  #title {
+    grid-area: titl;
+    justify-self: center;
+    align-self: center;
+  }
+
+  #profile {
+    grid-area: prof;
+    cursor: pointer;
+    height: 40px;
+    justify-self: end;
+    align-self: center;
+    margin-right: 2vw;
+  }
 }
