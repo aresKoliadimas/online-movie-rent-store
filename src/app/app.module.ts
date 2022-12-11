@@ -8,9 +8,10 @@ import { MovieCardComponent } from './movies-list/movie-card/movie-card.componen
 import { MovieDetailsModalComponent } from './movies-list/movie-card/movie-details-modal/movie-details-modal.component';
 import { HeaderComponent } from './header/header.component';
 import { IonicModule } from '@ionic/angular';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthInterceptor } from './shared/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     IonicModule.forRoot(),
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: AuthInterceptor,
+    //   multi: true,
+    // },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
