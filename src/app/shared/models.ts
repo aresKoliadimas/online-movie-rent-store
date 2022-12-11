@@ -1,3 +1,20 @@
+export interface AuthResult {
+  access: string;
+  refresh: string;
+}
+
+export interface LoginCreds {
+  username: string;
+  password: string;
+}
+
+export interface UserProfile {
+  exp: number;
+  jti: string;
+  user_id: number;
+  is_admin: boolean;
+}
+
 export interface Movie {
   uuid: string;
   title: string;
