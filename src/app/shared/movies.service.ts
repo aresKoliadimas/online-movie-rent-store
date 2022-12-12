@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject, catchError, map, Observable, of } from 'rxjs';
@@ -67,12 +67,17 @@ export class MoviesService {
     localStorage.removeItem('tokens');
   }
 
-  getMovies(): Observable<MoviesList> {
+  getMovies(page: number, pageSize: number): Observable<MoviesList> {
     const token = 'Bearer ' + this.getToken();
-    return this.http.get<MoviesList>(this.endpoint + 'rent-store/movies/', {
+    const url = this.endpoint + 'rent-store/movies/';
+    let params = new HttpParams();
+    params = params.append('page', page);
+    params = params.append('page_size', pageSize);
+    return this.http.get<MoviesList>(url, {
       headers: {
         Authorization: token,
       },
+      params: params,
     });
   }
 }

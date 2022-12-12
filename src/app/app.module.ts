@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './movies-list/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/auth.interceptor';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AuthInterceptor } from './shared/auth.interceptor';
     HttpClientModule,
     IonicModule.forRoot(),
     ReactiveFormsModule,
+    NgxPaginationModule,
   ],
   providers: [
     // {
