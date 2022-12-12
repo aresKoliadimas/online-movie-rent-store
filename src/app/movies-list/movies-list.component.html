@@ -1,4 +1,12 @@
 <app-header></app-header>
+<div class="select-no-movies-wrapper">
+  <label for="noOfMovies">No. of Movies: </label>
+  <select name="noOfMovies" (change)="onNoMoviesChange($event)">
+    <option *ngFor="let size of pageSizes" [ngValue]="size">
+      {{ size }}
+    </option>
+  </select>
+</div>
 <div class="movies-list-wrapper">
   <h3 *ngIf="!movies.length">Loading...</h3>
   <div *ngIf="movies && movies.length" class="movies-list">
@@ -16,6 +24,7 @@
   <pagination-controls
     class="my-pagination"
     *ngIf="movies && movies.length"
+    [responsive]="true"
     previousLabel=""
     nextLabel=""
     (pageChange)="onPageChange($event)"

@@ -1,5 +1,15 @@
-.movies-list-wrapper {
+.select-no-movies-wrapper {
   margin-top: 10vh;
+  margin-right: 6vw;
+  display: flex;
+  justify-content: end;
+
+  label {
+    margin-right: 1vw;
+  }
+}
+
+.movies-list-wrapper {
   padding: 20px;
   display: flex;
   justify-content: space-around;
