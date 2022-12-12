@@ -30,7 +30,7 @@ export class MoviesListComponent implements OnInit {
       });
   }
 
-  onPageChange(event: any) {
+  onPageChange(event: number) {
     this.page = event;
     this.getMovies();
   }
