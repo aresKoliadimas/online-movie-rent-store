@@ -13,7 +13,7 @@ import { HeaderComponent } from './movies-list/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { ProfileModalComponent } from './movies-list/profile-modal/profile-modal.component';
+import { ProfileModalComponent } from './movies-list/header/profile-modal/profile-modal.component';
 
 @NgModule({
   declarations: [

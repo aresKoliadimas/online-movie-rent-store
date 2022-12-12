@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
 import { MoviesService } from 'src/app/shared/movies.service';
-import { ProfileModalComponent } from '../profile-modal/profile-modal.component';
+import { ProfileModalComponent } from './profile-modal/profile-modal.component';
 
 @Component({
   selector: 'app-header',
