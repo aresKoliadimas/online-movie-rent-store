@@ -14,7 +14,11 @@
       *ngFor="
         let movie of movies
           | paginate
-            : { itemsPerPage: 10, currentPage: page, totalItems: totalMovies }
+            : {
+                itemsPerPage: noOfMovies,
+                currentPage: page,
+                totalItems: totalMovies
+              }
       "
       [movie]="movie"
     ></app-movie-card>

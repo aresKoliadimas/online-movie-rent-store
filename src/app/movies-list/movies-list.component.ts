@@ -11,12 +11,15 @@ export class MoviesListComponent implements OnInit {
   movies: Movie[] = [];
   totalMovies = 0;
   page = 1;
-  pageSizes = [5, 10, 15, 20, 25, 30];
+  pageSizes: number[] = [];
   noOfMovies = 5;
 
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
+    for (let i = 5; i <= 100; i += 5) {
+      this.pageSizes.push(i);
+    }
     this.getMovies();
   }
 
