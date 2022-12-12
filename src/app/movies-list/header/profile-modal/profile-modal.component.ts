@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { Profile } from 'src/app/shared/models';
 import { MoviesService } from 'src/app/shared/movies.service';
 
@@ -15,6 +15,7 @@ export class ProfileModalComponent implements OnInit {
   constructor(
     private service: MoviesService,
     private router: Router,
+    private modal: ModalController,
     private alert: AlertController
   ) {}
 
@@ -66,6 +67,7 @@ export class ProfileModalComponent implements OnInit {
 
   onLogout() {
     this.service.logout();
+    this.modal.dismiss();
     this.router.navigate(['/login']);
   }
 }
