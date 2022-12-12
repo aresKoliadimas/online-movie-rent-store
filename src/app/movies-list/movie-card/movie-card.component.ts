@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Movie } from 'src/app/shared/models';
 import { MovieDetailsModalComponent } from './movie-details-modal/movie-details-modal.component';
@@ -8,12 +8,10 @@ import { MovieDetailsModalComponent } from './movie-details-modal/movie-details-
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss'],
 })
-export class MovieCardComponent implements OnInit {
+export class MovieCardComponent {
   @Input() movie!: Movie;
 
   constructor(private modalCtrl: ModalController) {}
-
-  ngOnInit(): void {}
 
   async openMovieModal(movie: Movie) {
     const modal = await this.modalCtrl.create({
