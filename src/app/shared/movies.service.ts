@@ -7,6 +7,7 @@ import {
   LoginCreds,
   MoviesList,
   Profile,
+  RentalsList,
   UserProfile,
 } from 'src/app/shared/models';
 
@@ -57,7 +58,7 @@ export class MoviesService {
   }
 
   refreshToken(tokens: AuthResult) {
-    return this.http.post(this.endpoint + '/auth/refresh/', tokens);
+    return this.http.post(this.endpoint + 'auth/refresh/', tokens);
   }
 
   isLoggedIn() {
@@ -82,9 +83,39 @@ export class MoviesService {
     });
   }
 
+  rentMovie(movieId: string) {
+    const token = 'Bearer ' + this.getToken();
+    const url = this.endpoint + 'rent-store/rentals/';
+    return this.http.post(
+      url,
+      { movie: movieId },
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
+  }
+
+  returnMovie() {}
+
+  getRentals(page: number, pageSize: number): Observable<RentalsList> {
+    const token = 'Bearer ' + this.getToken();
+    const url = this.endpoint + 'rent-store/rentals/';
+    let params = new HttpParams();
+    params = params.append('page', page);
+    params = params.append('page_size', pageSize);
+    return this.http.get<RentalsList>(url, {
+      headers: {
+        Authorization: token,
+      },
+      params: params,
+    });
+  }
+
   getProfile(): Observable<Profile> {
     const token = 'Bearer ' + this.getToken();
-    const url = this.endpoint + '/rent-store/profile/';
+    const url = this.endpoint + 'rent-store/profile/';
     return this.http.get<Profile>(url, {
       headers: {
         Authorization: token,
@@ -94,7 +125,7 @@ export class MoviesService {
 
   depositMoney(amount: number) {
     const token = 'Bearer ' + this.getToken();
-    const url = this.endpoint + '/rent-store/profile/';
+    const url = this.endpoint + 'rent-store/profile/';
     return this.http.patch<Profile>(
       url,
       { deposit: amount },

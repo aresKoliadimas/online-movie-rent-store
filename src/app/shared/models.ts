@@ -39,3 +39,19 @@ export interface Profile {
   last_name: string;
   wallet: number;
 }
+
+export interface RentedMovie {
+  uuid: string;
+  rental_date: string;
+  return_date: string;
+  is_paid: boolean;
+  user: number;
+  movie: string;
+}
+
+export interface RentalsList {
+  count: number;
+  next: string;
+  previous: string;
+  results: RentedMovie[];
+}
