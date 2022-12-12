@@ -27,14 +27,12 @@ export class MoviesListComponent implements OnInit {
         this.moviesList = moviesList;
         this.movies = this.moviesList.results;
         this.totalMovies = this.moviesList.count;
-        console.log(this.moviesList);
       });
   }
 
   onNoMoviesChange(event: any) {
     this.noOfMovies = Number(event.target.value);
     this.getMovies();
-    console.log(event.target.value);
   }
 
   onPageChange(event: number) {
