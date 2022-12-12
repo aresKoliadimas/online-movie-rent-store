@@ -12,6 +12,11 @@ ion-modal {
   backdrop-filter: blur(5px);
 }
 
+ion-content {
+  --background: rgb(30, 30, 30);
+  --color: #fff;
+}
+
 button {
   margin-top: 50px;
   width: 100%;
