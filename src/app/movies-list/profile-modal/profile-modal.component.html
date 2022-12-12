@@ -1,0 +1,16 @@
+<ion-spinner name="crescent" *ngIf="!profile" id="spinner"></ion-spinner>
+<div id="head-wrapper" *ngIf="profile">
+  <img src="../../assets/user.png" id="profile" />
+  <div id="name">
+    <h1>{{ profile.first_name }}</h1>
+    <h1>{{ profile.last_name }}</h1>
+    <p id="mail">{{ profile.email }}</p>
+  </div>
+</div>
+<div id="wallet-wrapper" *ngIf="profile">
+  <p id="wallet">
+    Wallet: <span>{{ profile.wallet }} €</span>
+  </p>
+  <button (click)="onDeposit()">Deposit</button>
+</div>
+<button id="logout" (click)="onLogout()" *ngIf="profile">LOGOUT</button>

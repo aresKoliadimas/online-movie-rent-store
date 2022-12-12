@@ -1,0 +1,61 @@
+#spinner {
+  margin: 50%;
+}
+
+#head-wrapper {
+  margin-top: 2vh;
+  display: flex;
+  justify-content: space-around;
+
+  #profile {
+    max-height: 240px;
+  }
+
+  #name {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      margin: 5%;
+      font-size: 3em;
+      font-weight: 800;
+    }
+
+    #mail {
+      margin: 5%;
+      font-size: 1.1em;
+      font-style: italic;
+      letter-spacing: 0.2em;
+    }
+  }
+}
+
+#wallet-wrapper {
+  display: flex;
+  margin-top: 2vh;
+  align-items: baseline;
+  justify-content: space-around;
+
+  #wallet {
+    font-size: 1.5em;
+    letter-spacing: 0.2em;
+
+    span {
+      font-weight: 800;
+      font-size: 1.5em;
+    }
+  }
+
+  button {
+    width: 50%;
+    background: lightgreen;
+  }
+
+  button:hover {
+    background: greenyellow;
+  }
+}
+
+#logout:hover {
+  background: lightcoral;
+}
