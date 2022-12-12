@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Movie } from 'src/app/shared/models';
+import { Movie, RentalsList, RentedMovie } from 'src/app/shared/models';
 import { MoviesService } from 'src/app/shared/movies.service';
 
 @Component({
@@ -13,6 +13,8 @@ export class MovieDetailsModalComponent implements OnInit {
   hours!: number;
   star = '⭐';
   stars = '';
+  rentals!: RentedMovie[];
+  isRented = false;
 
   constructor(
     private service: MoviesService,
@@ -22,13 +24,20 @@ export class MovieDetailsModalComponent implements OnInit {
   ngOnInit(): void {
     this.hours = Math.floor(this.movie.duration / 60);
     this.stars = this.star.repeat(Math.floor(this.movie.rating));
+    this.isMovieRented();
   }
 
   onRentMovie() {
-    this.service
-      .rentMovie(this.movie.uuid)
-      .subscribe((rented) => console.log(rented));
-    this.service.getRentals(1, 5).subscribe((list) => console.log(list));
+    this.service.rentMovie(this.movie.uuid).subscribe();
+  }
+
+  isMovieRented() {
+    this.service.getRentals(1, 200, true).subscribe((result: RentalsList) => {
+      const rentedMoviesId = result.results.map((movie) => movie.movie);
+      rentedMoviesId.includes(this.movie.title)
+        ? (this.isRented = true)
+        : (this.isRented = false);
+    });
   }
 
   onModalClose() {

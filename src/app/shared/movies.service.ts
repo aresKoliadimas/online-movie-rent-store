@@ -99,12 +99,17 @@ export class MoviesService {
 
   returnMovie() {}
 
-  getRentals(page: number, pageSize: number): Observable<RentalsList> {
+  getRentals(
+    page: number,
+    pageSize: number,
+    onlyActive: boolean
+  ): Observable<RentalsList> {
     const token = 'Bearer ' + this.getToken();
     const url = this.endpoint + 'rent-store/rentals/';
     let params = new HttpParams();
     params = params.append('page', page);
     params = params.append('page_size', pageSize);
+    onlyActive ? (params = params.append('filter', 'only-active')) : null;
     return this.http.get<RentalsList>(url, {
       headers: {
         Authorization: token,
