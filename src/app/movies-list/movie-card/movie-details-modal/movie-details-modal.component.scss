@@ -20,6 +20,9 @@ header {
 
   button {
     cursor: pointer;
+
+    margin-top: 0;
+    padding: 0;
     background: rgb(255, 196, 196);
     width: 40px;
     height: 40px;
@@ -62,12 +65,12 @@ footer {
   justify-content: space-around;
   align-items: center;
 
-  button {
-    cursor: pointer;
-    height: 80px;
-    width: 150px;
-    border-radius: 30% / 70%;
-    font-size: 1.5em;
-    font-weight: 800;
-  }
+  // button {
+  //   cursor: pointer;
+  //   height: 80px;
+  //   width: 150px;
+  //   border-radius: 30% / 70%;
+  //   font-size: 1.5em;
+  //   font-weight: 800;
+  // }
 }
