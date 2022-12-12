@@ -8,7 +8,7 @@
   </select>
 </div>
 <div class="movies-list-wrapper">
-  <h3 *ngIf="!movies.length">Loading...</h3>
+  <h3 *ngIf="!movies.length">Loading<ion-spinner name="dots"></ion-spinner></h3>
   <div *ngIf="movies && movies.length" class="movies-list">
     <app-movie-card
       *ngFor="
