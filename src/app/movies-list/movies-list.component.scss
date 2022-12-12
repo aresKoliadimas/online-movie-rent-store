@@ -11,3 +11,29 @@
   align-items: center;
   gap: 1.5vw;
 }
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: space-around;
+  font-size: 4vw;
+}
+
+.my-pagination::ng-deep .ngx-pagination {
+  .current {
+    background: transparent;
+    color: lightskyblue;
+    font-size: 5vw;
+  }
+
+  .disabled {
+    color: rgb(30, 30, 30);
+  }
+
+  a {
+    color: white;
+    background: transparent;
+    :hover {
+      color: lightskyblue;
+    }
+  }
+}
