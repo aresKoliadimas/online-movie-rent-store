@@ -6,10 +6,10 @@ import { AppComponent } from './app.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { MovieCardComponent } from './movies-list/movie-card/movie-card.component';
 import { MovieDetailsModalComponent } from './movies-list/movie-card/movie-details-modal/movie-details-modal.component';
-import { HeaderComponent } from './header/header.component';
 import { IonicModule } from '@ionic/angular';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
+import { HeaderComponent } from './movies-list/header/header.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/auth.interceptor';
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { MoviesService } from '../shared/movies.service';
+import { MoviesService } from 'src/app/shared/movies.service';
 
 @Component({
   selector: 'app-header',
