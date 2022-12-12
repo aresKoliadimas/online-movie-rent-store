@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="select-no-movies-wrapper">
+<div class="select-no-movies-wrapper" *ngIf="movies && movies.length">
   <label for="noOfMovies">No. of Movies: </label>
   <select name="noOfMovies" (change)="onNoMoviesChange($event)">
     <option *ngFor="let size of pageSizes" [ngValue]="size">
@@ -8,7 +8,7 @@
   </select>
 </div>
 <div class="movies-list-wrapper">
-  <h3 *ngIf="!movies.length">Loading<ion-spinner name="dots"></ion-spinner></h3>
+  <ion-spinner name="dots" *ngIf="!movies.length"></ion-spinner>
   <div *ngIf="movies && movies.length" class="movies-list">
     <app-movie-card
       *ngFor="
