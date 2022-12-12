@@ -14,7 +14,9 @@
 </div>
 <div class="pagination-wrapper">
   <pagination-controls
-    (pageChange)="page = $event"
     *ngIf="movies && movies.length"
+    previousLabel=""
+    nextLabel=""
+    (pageChange)="onPageChange($event)"
   ></pagination-controls>
 </div>

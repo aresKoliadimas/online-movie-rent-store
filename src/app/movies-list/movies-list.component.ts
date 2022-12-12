@@ -16,6 +16,10 @@ export class MoviesListComponent implements OnInit {
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
+    this.getMovies();
+  }
+
+  getMovies() {
     this.moviesService
       .getMovies(this.page, this.pageSize)
       .subscribe((moviesList) => {
@@ -26,7 +30,8 @@ export class MoviesListComponent implements OnInit {
       });
   }
 
-  pageChange($event: any) {
-    console.log(this.page);
+  onPageChange(event: any) {
+    this.page = event;
+    this.getMovies();
   }
 }
