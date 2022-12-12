@@ -6,6 +6,7 @@ import {
   AuthResult,
   LoginCreds,
   MoviesList,
+  Profile,
   UserProfile,
 } from 'src/app/shared/models';
 
@@ -79,5 +80,29 @@ export class MoviesService {
       },
       params: params,
     });
+  }
+
+  getProfile(): Observable<Profile> {
+    const token = 'Bearer ' + this.getToken();
+    const url = this.endpoint + '/rent-store/profile/';
+    return this.http.get<Profile>(url, {
+      headers: {
+        Authorization: token,
+      },
+    });
+  }
+
+  depositMoney(amount: number) {
+    const token = 'Bearer ' + this.getToken();
+    const url = this.endpoint + '/rent-store/profile/';
+    return this.http.patch<Profile>(
+      url,
+      { deposit: amount },
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
   }
 }
