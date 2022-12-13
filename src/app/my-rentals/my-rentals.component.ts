@@ -16,6 +16,7 @@ export class MyRentalsComponent implements OnInit {
   onlyActive = false;
 
   constructor(private service: MoviesService) {}
+  // TODO: sorting
 
   ngOnInit(): void {
     for (let i = 5; i <= 20; i += 5) {

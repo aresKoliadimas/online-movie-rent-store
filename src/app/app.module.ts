@@ -36,6 +36,7 @@ import { MyRentalsComponent } from './my-rentals/my-rentals.component';
     NgxPaginationModule,
   ],
   providers: [
+    // FIXME: circural
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: AuthInterceptor,

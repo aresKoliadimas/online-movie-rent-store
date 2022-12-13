@@ -61,6 +61,7 @@ export class MoviesService {
     return this.http.post(this.endpoint + 'auth/refresh/', tokens);
   }
 
+  // FIXME: better handling
   isLoggedIn() {
     return !!localStorage.getItem('tokens');
   }
