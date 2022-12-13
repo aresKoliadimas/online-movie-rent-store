@@ -1,9 +1,7 @@
 <div class="header-wrapper">
   <div id="title-wrapper">
     <h1 id="title">Online Movie Rent Store</h1>
-    <p *ngIf="isAdmin">
-      Admin &nbsp;<span id="logout" (click)="logout()"><u>(Logout)</u></span>
-    </p>
+    <p *ngIf="isAdmin">Admin</p>
   </div>
   <div class="nav-icons" *ngIf="!isAdmin">
     <img
@@ -53,6 +51,14 @@
       title="Add Movie"
       class="icon"
       (click)="openAddMovieModal()"
+    />
+    <img
+      src="../../assets/exit.png"
+      alt="Logout"
+      title="Logout"
+      class="icon"
+      id="logout"
+      (click)="logout()"
     />
   </div>
 </div>

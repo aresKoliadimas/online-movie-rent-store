@@ -21,16 +21,6 @@
     }
   }
 
-  #logout {
-    cursor: pointer;
-    font-weight: 100;
-    font-style: italic;
-
-    :hover {
-      color: lightcoral;
-    }
-  }
-
   .nav-icons {
     grid-area: prof;
     display: flex;
