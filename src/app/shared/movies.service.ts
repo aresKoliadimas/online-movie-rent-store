@@ -4,6 +4,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject, catchError, map, Observable, of } from 'rxjs';
 import {
   AuthResult,
+  Category,
   LoginCreds,
   Movie,
   MoviesList,
@@ -80,12 +81,27 @@ export class MoviesService {
     localStorage.removeItem('tokens');
   }
 
-  getMovies(page: number, pageSize: number): Observable<MoviesList> {
+  getCategories() {
+    const token = 'Bearer ' + this.getToken();
+    const url = this.endpoint + 'rent-store/categories/';
+    return this.http.get<Category[]>(url, {
+      headers: {
+        Authorization: token,
+      },
+    });
+  }
+
+  getMovies(
+    page: number,
+    pageSize: number,
+    category: string
+  ): Observable<MoviesList> {
     const token = 'Bearer ' + this.getToken();
     const url = this.endpoint + 'rent-store/movies/';
     let params = new HttpParams();
     params = params.append('page', page);
     params = params.append('page_size', pageSize);
+    category != 'All' ? (params = params.append('category', category)) : null;
     return this.http.get<MoviesList>(url, {
       headers: {
         Authorization: token,
