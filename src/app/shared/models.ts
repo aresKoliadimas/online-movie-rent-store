@@ -15,15 +15,26 @@ export interface UserProfile {
   is_admin: boolean;
 }
 
-export interface Movie {
-  uuid: string;
-  title: string;
-  pub_date: number;
-  duration: number;
-  rating: number;
-  description: string;
-  poster_url: string;
-  categories: string[];
+export class Movie {
+  constructor(
+    public uuid: string,
+    public title: string,
+    public pub_date: number,
+    public duration: number,
+    public rating: number,
+    public description: string,
+    public poster_url: string,
+    public categories: string[]
+  ) {
+    this.uuid = uuid;
+    this.title = title;
+    this.pub_date = pub_date;
+    this.duration = duration;
+    this.rating = rating;
+    this.description = description;
+    this.poster_url = poster_url;
+    this.categories = categories;
+  }
 }
 
 export interface MoviesList {
