@@ -97,7 +97,15 @@ export class MoviesService {
     );
   }
 
-  returnMovie() {}
+  returnMovie(movieId: string) {
+    const token = 'Bearer ' + this.getToken();
+    const url = this.endpoint + 'rent-store/profile/' + movieId;
+    return this.http.patch(url, {
+      headers: {
+        Authorization: token,
+      },
+    });
+  }
 
   getRentals(
     page: number,

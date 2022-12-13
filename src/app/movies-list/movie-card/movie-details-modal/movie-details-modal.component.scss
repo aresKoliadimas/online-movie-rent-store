@@ -68,6 +68,10 @@ footer {
   justify-content: space-around;
   align-items: center;
 
+  button {
+    width: 35vw;
+  }
+
   button:disabled {
     cursor: not-allowed;
     background: gray;

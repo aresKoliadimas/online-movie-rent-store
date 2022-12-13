@@ -25,9 +25,13 @@
     </div>
   </div>
   <footer>
-    <button (click)="onRentMovie()" [disabled]="isRented">
-      {{ isRented ? "Already Rented" : "Rent" }}
-    </button>
-    <button (click)="onModalClose()" [disabled]="!isRented">Return</button>
+    <div *ngIf="!isRented">
+      <button (click)="onRentMovie()" [disabled]="isRented">
+        {{ isRented ? "Already Rented" : "Rent" }}
+      </button>
+    </div>
+    <div *ngIf="isRented">
+      <button (click)="onReturnMovie()" [disabled]="!isRented">Return</button>
+    </div>
   </footer>
 </ion-content>
