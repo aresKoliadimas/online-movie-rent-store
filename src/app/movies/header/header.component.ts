@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit {
     const modal = await this.modalCtrl.create({
       component: AddMovieModalComponent,
       cssClass: 'add-movie-modal',
-      backdropDismiss: true,
+      backdropDismiss: false,
     });
     return await modal.present();
   }
