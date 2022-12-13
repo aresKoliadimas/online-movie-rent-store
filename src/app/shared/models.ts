@@ -15,6 +15,10 @@ export interface UserProfile {
   is_admin: boolean;
 }
 
+export interface Category {
+  name: string;
+}
+
 export class Movie {
   constructor(
     public uuid: string,
