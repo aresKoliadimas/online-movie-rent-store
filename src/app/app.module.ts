@@ -15,6 +15,7 @@ import { AuthInterceptor } from './shared/auth.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProfileModalComponent } from './movies-list/header/profile-modal/profile-modal.component';
 import { MyRentalsComponent } from './my-rentals/my-rentals.component';
+import { MoviesComponent } from './movies/movies.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { MyRentalsComponent } from './my-rentals/my-rentals.component';
     LoginComponent,
     ProfileModalComponent,
     MyRentalsComponent,
+    MoviesComponent,
   ],
   imports: [
     BrowserModule,

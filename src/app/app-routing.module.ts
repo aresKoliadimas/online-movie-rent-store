@@ -4,18 +4,18 @@ import { AuthGuard } from './shared/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { MyRentalsComponent } from './my-rentals/my-rentals.component';
-import { AllRentalsComponent } from './all-rentals/all-rentals.component';
+import { MoviesComponent } from './movies/movies.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   {
-    path: 'movies-list',
-    component: MoviesListComponent,
+    path: 'movies',
+    component: MoviesComponent,
     canActivate: [AuthGuard],
   },
   {
-    path: 'all-rentals',
-    component: AllRentalsComponent,
+    path: 'movies-list',
+    component: MoviesListComponent,
     canActivate: [AuthGuard],
   },
   {
