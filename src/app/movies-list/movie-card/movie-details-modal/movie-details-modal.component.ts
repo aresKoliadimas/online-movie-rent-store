@@ -29,20 +29,16 @@ export class MovieDetailsModalComponent implements OnInit {
 
   onRentMovie() {
     this.service.rentMovie(this.movie.uuid).subscribe();
+    this.modalCtrl.dismiss();
   }
 
   isMovieRented() {
     this.service.getRentals(1, 200, true).subscribe((result: RentalsList) => {
       const rentedMovies = result.results.map((movie) => movie.movie);
-      console.log(rentedMovies);
       rentedMovies.includes(this.movie.title)
         ? (this.isRented = true)
         : (this.isRented = false);
     });
-  }
-
-  onReturnMovie() {
-    this.service.returnMovie(this.movie.uuid).subscribe();
   }
 
   onModalClose() {
