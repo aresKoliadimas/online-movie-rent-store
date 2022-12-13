@@ -2,11 +2,15 @@
 <div id="spinner" *ngIf="!rentalsList">
   <ion-spinner name="dots"></ion-spinner>
 </div>
-<div class="select-no-movies-wrapper" *ngIf="rentalsList">
+<div class="select-no-rentals-wrapper" *ngIf="rentalsList">
   <div id="filters">
     <div>
-      <label for="noOfRentals">No. of Rentals: </label>
-      <select name="noOfRentals" (change)="onNoRentalsChange($event)">
+      <label for="noOfRentals">Number of Rentals: </label>
+      <select
+        name="noOfRentals"
+        id="no-rentals"
+        (change)="onNoRentalsChange($event)"
+      >
         <option *ngFor="let size of pageSizes" [ngValue]="size">
           {{ size }}
         </option>
