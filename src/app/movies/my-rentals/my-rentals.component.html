@@ -32,7 +32,7 @@
         <th><button>Title</button></th>
         <th><button>Rental Date</button></th>
         <th><button>Return Date</button></th>
-        <th><button>Is Paid</button></th>
+        <th><button>Paid</button></th>
       </tr>
     </thead>
     <tbody id="table-content">
@@ -58,7 +58,7 @@
           }}
         </td>
         <td id="is-paid">
-          {{ rentedMovie.is_paid ? "&#x2714;" : "&#x2610;" }}
+          {{ rentedMovie.is_paid ? "&#x2714;" : "&#10005;" }}
         </td>
         <td *ngIf="!isAdmin">
           <button
