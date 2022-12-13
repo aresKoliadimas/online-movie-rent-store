@@ -15,6 +15,7 @@ import {
   providedIn: 'root',
 })
 export class MoviesService {
+  // first must go to https://cors-anywhere.herokuapp.com/corsdemo and request temporary access to the demo server.
   private readonly proxy = 'https://cors-anywhere.herokuapp.com/';
   private readonly endpoint = this.proxy + 'http://3.235.214.44:8000/';
   userProfile = new BehaviorSubject<UserProfile | null>(null);

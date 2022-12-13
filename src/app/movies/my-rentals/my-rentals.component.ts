@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RentedMovie } from '../shared/models';
-import { MoviesService } from '../shared/movies.service';
+import { RentedMovie } from '../../shared/models';
+import { MoviesService } from '../../shared/movies.service';
 
 @Component({
   selector: 'app-my-rentals',

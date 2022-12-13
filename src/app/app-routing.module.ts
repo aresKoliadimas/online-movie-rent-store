@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/auth.guard';
 import { LoginComponent } from './login/login.component';
-import { MoviesListComponent } from './movies-list/movies-list.component';
-import { MyRentalsComponent } from './my-rentals/my-rentals.component';
+import { MyRentalsComponent } from './movies/my-rentals/my-rentals.component';
 import { MoviesComponent } from './movies/movies.component';
 import { BubbleChartComponent } from './movies/bubble-chart/bubble-chart.component';
+import { MoviesListComponent } from './movies/movies-list/movies-list.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
