@@ -34,8 +34,11 @@ export class MyRentalsComponent implements OnInit {
   }
 
   onReturnMovie(uuid: string) {
-    this.service.returnMovie(uuid).subscribe();
-    this.getMyRentals(this.onlyActive);
+    this.service.returnMovie(uuid).subscribe((res) => {
+      if (res) {
+        this.getMyRentals(this.onlyActive);
+      }
+    });
   }
 
   onPageChange(event: number) {
@@ -50,6 +53,7 @@ export class MyRentalsComponent implements OnInit {
 
   onOnlyActiveRentalsChange(event: any) {
     if (event.target.value === 'Yes') {
+      this.page = 1;
       this.onlyActive = true;
       this.getMyRentals(this.onlyActive);
     } else {
