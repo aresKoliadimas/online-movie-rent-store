@@ -1,2 +1,11 @@
 <app-header page="movies"></app-header>
-<p>bubble-chart works!</p>
+<div id="chart-wrapper">
+  <canvas
+    baseChart
+    [datasets]="bubbleChartDatasets"
+    [options]="bubbleChartOptions"
+    [legend]="bubbleChartLegend"
+    [type]="'bubble'"
+  >
+  </canvas>
+</div>
