@@ -34,6 +34,7 @@ export class MoviesListComponent implements OnInit {
   }
 
   onNoMoviesChange(event: any) {
+    this.page = 1;
     this.noOfMovies = Number(event.target.value);
     this.getMovies();
   }
