@@ -1,12 +1,29 @@
+#spinner {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
 .select-no-movies-wrapper {
   margin-top: 10vh;
   margin-right: 6vw;
+  margin-bottom: 5vh;
   display: flex;
   justify-content: end;
 
   label {
-    margin-right: 1vw;
+    margin-right: 0.5vw;
   }
+
+  #categories {
+    margin-left: 4%;
+  }
+}
+
+#filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .movies-list-wrapper {

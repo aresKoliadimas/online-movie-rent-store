@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie, MoviesList } from 'src/app/shared/models';
+import { Category, Movie, MoviesList } from 'src/app/shared/models';
 import { MoviesService } from 'src/app/shared/movies.service';
 @Component({
   selector: 'app-movies-list',
@@ -13,6 +13,7 @@ export class MoviesListComponent implements OnInit {
   page = 1;
   pageSizes: number[] = [];
   noOfMovies = 5;
+  categories: string[] = ['All'];
 
   constructor(private service: MoviesService) {}
 
@@ -20,12 +21,17 @@ export class MoviesListComponent implements OnInit {
     for (let i = 5; i <= 100; i += 5) {
       this.pageSizes.push(i);
     }
-    this.getMovies();
+    this.getMovies('All');
+    this.service.getCategories().subscribe((categoriesList: Category[]) =>
+      categoriesList.forEach((category) => {
+        this.categories.push(category.name);
+      })
+    );
   }
 
-  getMovies() {
+  getMovies(category: string) {
     this.service
-      .getMovies(this.page, this.noOfMovies)
+      .getMovies(this.page, this.noOfMovies, category)
       .subscribe((moviesList) => {
         this.moviesList = moviesList;
         this.movies = this.moviesList.results;
@@ -36,11 +42,16 @@ export class MoviesListComponent implements OnInit {
   onNoMoviesChange(event: any) {
     this.page = 1;
     this.noOfMovies = Number(event.target.value);
-    this.getMovies();
+    this.getMovies('All');
   }
 
   onPageChange(event: number) {
     this.page = event;
-    this.getMovies();
+    this.getMovies('All');
+  }
+
+  onSelectCategory(event: any) {
+    const category = event.target.value;
+    this.getMovies(category);
   }
 }

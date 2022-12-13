@@ -1,13 +1,31 @@
 <app-header page="movies"></app-header>
-<div class="select-no-movies-wrapper" *ngIf="movies && movies.length">
-  <label for="noOfMovies">No. of Movies: </label>
-  <select name="noOfMovies" (change)="onNoMoviesChange($event)">
-    <option *ngFor="let size of pageSizes" [ngValue]="size">
-      {{ size }}
-    </option>
-  </select>
+<div id="spinner" *ngIf="!movies">
+  <ion-spinner name="dots"></ion-spinner>
 </div>
-<!-- TODO: add categories filter -->
+<div class="select-no-movies-wrapper" *ngIf="movies && movies.length">
+  <div id="filters">
+    <div>
+      <label for="noOfMovies">Number of Movies: </label>
+      <select name="noOfMovies" (change)="onNoMoviesChange($event)">
+        <option *ngFor="let size of pageSizes" [ngValue]="size">
+          {{ size }}
+        </option>
+      </select>
+    </div>
+    <div>
+      <label for="categories">Categories: </label>
+      <select
+        name="categories"
+        id="categories"
+        (change)="onSelectCategory($event)"
+      >
+        <option *ngFor="let category of categories" [ngValue]="category">
+          {{ category }}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
 <div class="movies-list-wrapper">
   <ion-spinner name="dots" *ngIf="!movies.length"></ion-spinner>
   <div *ngIf="movies && movies.length" class="movies-list">
