@@ -68,6 +68,6 @@ export class ProfileModalComponent implements OnInit {
   onLogout() {
     this.service.logout();
     this.modal.dismiss();
-    this.router.navigate(['/login']);
+    this.router.navigate(['']);
   }
 }

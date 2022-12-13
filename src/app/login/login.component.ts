@@ -31,7 +31,7 @@ export class LoginComponent {
         password: values.password,
       };
       this.service.login(loginCreds).subscribe(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/movies-list']);
       });
     }
   }
