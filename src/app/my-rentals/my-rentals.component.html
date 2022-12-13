@@ -2,7 +2,7 @@
 <div id="spinner" *ngIf="!rentalsList">
   <ion-spinner name="dots"></ion-spinner>
 </div>
-<div class="select-no-movies-wrapper" *ngIf="rentalsList && rentalsList.length">
+<div class="select-no-movies-wrapper" *ngIf="rentalsList">
   <div id="filters">
     <div>
       <label for="noOfRentals">No. of Rentals: </label>
@@ -20,6 +20,9 @@
       </select>
     </div>
   </div>
+</div>
+<div *ngIf="rentalsList && !rentalsList.length" id="no-rentals-wrapper">
+  <h2>There are no active rentals</h2>
 </div>
 <div class="table-container" *ngIf="rentalsList && rentalsList.length">
   <table class="data-table">
