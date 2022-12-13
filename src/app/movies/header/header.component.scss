@@ -6,10 +6,29 @@
   grid-template-areas: ". titl prof";
   height: 15vh;
 
-  #title {
+  #title-wrapper {
     grid-area: titl;
+    display: flex;
+    flex-direction: column;
     justify-self: center;
     align-self: center;
+    align-items: center;
+
+    #title,
+    p {
+      font-weight: 800;
+      margin: 0;
+    }
+  }
+
+  #logout {
+    cursor: pointer;
+    font-weight: 100;
+    font-style: italic;
+
+    :hover {
+      color: lightcoral;
+    }
   }
 
   .nav-icons {

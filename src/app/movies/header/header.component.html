@@ -1,5 +1,10 @@
 <div class="header-wrapper">
-  <h1 id="title">Online Movie Rent Store</h1>
+  <div id="title-wrapper">
+    <h1 id="title">Online Movie Rent Store</h1>
+    <p *ngIf="isAdmin">
+      Admin &nbsp;<span id="logout" (click)="logout()"><u>(Logout)</u></span>
+    </p>
+  </div>
   <div class="nav-icons" *ngIf="!isAdmin">
     <img
       *ngIf="page === 'movies'"

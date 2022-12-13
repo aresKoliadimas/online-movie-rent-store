@@ -13,6 +13,7 @@ import { ProfileModalComponent } from './profile-modal/profile-modal.component';
 export class HeaderComponent implements OnInit {
   @Input() page!: string;
   isAdmin = false;
+
   constructor(
     private service: MoviesService,
     private modalCtrl: ModalController,
@@ -51,5 +52,10 @@ export class HeaderComponent implements OnInit {
       backdropDismiss: true,
     });
     return await modal.present();
+  }
+
+  logout() {
+    this.service.logout();
+    this.router.navigate(['']);
   }
 }
