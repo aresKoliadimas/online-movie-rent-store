@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import * as moment from 'moment';
 import { BehaviorSubject, catchError, map, Observable, of } from 'rxjs';
 import {
   AuthResult,
@@ -64,9 +65,10 @@ export class MoviesService {
     return this.http.post(this.endpoint + 'auth/refresh/', tokens);
   }
 
-  // FIXME: better handling
   isLoggedIn() {
-    return !!localStorage.getItem('tokens');
+    const decodedToken = this.jwtService.decodeToken(this.getToken());
+    const expiration = moment.unix(decodedToken.exp);
+    return moment().isBefore(expiration);
   }
 
   isAdmin() {
