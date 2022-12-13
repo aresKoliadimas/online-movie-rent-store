@@ -65,7 +65,7 @@
             (click)="onReturnMovie(rentedMovie.uuid)"
             [disabled]="rentedMovie.is_paid"
           >
-            Return
+            {{ rentedMovie.return_date ? "Returned" : "Return" }}
           </button>
         </td>
       </tr>
