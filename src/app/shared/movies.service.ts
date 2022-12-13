@@ -129,8 +129,8 @@ export class MoviesService {
     let params = new HttpParams();
     params = params.append('page', page);
     params = params.append('page_size', pageSize);
-    let urlParams = '';
-    onlyActive ? (urlParams = '?' + params.toString() + '&only-active') : null;
+    let urlParams = '?' + params.toString();
+    onlyActive ? (urlParams += '&only-active') : null;
     return this.http.get<RentalsList>(url + urlParams, {
       headers: {
         Authorization: token,
