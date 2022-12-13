@@ -5,6 +5,7 @@ import { BehaviorSubject, catchError, map, Observable, of } from 'rxjs';
 import {
   AuthResult,
   LoginCreds,
+  Movie,
   MoviesList,
   Profile,
   RentalsList,
@@ -15,7 +16,7 @@ import {
   providedIn: 'root',
 })
 export class MoviesService {
-  // first must go to https://cors-anywhere.herokuapp.com/corsdemo and request temporary access to the demo server.
+  // firstly one must go to https://cors-anywhere.herokuapp.com/corsdemo and request temporary access to the demo server.
   private readonly proxy = 'https://cors-anywhere.herokuapp.com/';
   private readonly endpoint = this.proxy + 'http://3.235.214.44:8000/';
   userProfile = new BehaviorSubject<UserProfile | null>(null);
@@ -105,6 +106,16 @@ export class MoviesService {
         },
       }
     );
+  }
+
+  addMovie(movie: Movie) {
+    const token = 'Bearer ' + this.getToken();
+    const url = this.endpoint + 'rent-store/movies/';
+    return this.http.post(url, movie, {
+      headers: {
+        Authorization: token,
+      },
+    });
   }
 
   returnMovie(movieId: string) {
