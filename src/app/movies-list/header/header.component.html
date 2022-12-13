@@ -1,12 +1,12 @@
 <div class="header-wrapper">
   <h1 id="title">Online Movie Rent Store</h1>
-  <div id="nav-icons">
+  <div class="nav-icons" *ngIf="!isAdmin">
     <img
       *ngIf="page === 'movies'"
       src="../../assets/list.png"
       alt="My Rentals"
       title="My Rentals"
-      id="icon"
+      class="icon"
       (click)="navigateToMyRentals()"
     />
     <img
@@ -14,15 +14,40 @@
       src="../../assets/movie.png"
       alt="All Movies"
       title="All Movies"
-      id="icon"
+      class="icon"
       (click)="navigateToAllMovies()"
     />
     <img
       src="../../assets/user.png"
       alt="Profile"
       title="Profile"
-      id="icon"
+      class="icon"
       (click)="openProfileModal()"
+    />
+  </div>
+  <div class="nav-icons" *ngIf="isAdmin">
+    <img
+      *ngIf="page === 'rentals'"
+      src="../../assets/bubble.png"
+      alt="Movies Chart"
+      title="Movies Chart"
+      class="icon"
+      (click)="navigateToMoviesChart()"
+    />
+    <img
+      *ngIf="page === 'movies'"
+      src="../../assets/list.png"
+      alt="All Rentals"
+      title="All Rentals"
+      class="icon"
+      (click)="navigateToMyRentals()"
+    />
+    <img
+      src="../../assets/add.png"
+      alt="Add Movie"
+      title="Add Movie"
+      class="icon"
+      (click)="openAddMovieModal()"
     />
   </div>
 </div>

@@ -12,12 +12,12 @@
     align-self: center;
   }
 
-  #nav-icons {
+  .nav-icons {
     grid-area: prof;
     display: flex;
     justify-content: end;
 
-    #icon {
+    .icon {
       cursor: pointer;
       height: 40px;
       align-self: center;
