@@ -16,6 +16,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ProfileModalComponent } from './movies-list/header/profile-modal/profile-modal.component';
 import { MyRentalsComponent } from './my-rentals/my-rentals.component';
 import { MoviesComponent } from './movies/movies.component';
+import { BubbleChartComponent } from './movies/bubble-chart/bubble-chart.component';
+import { AddMovieModalComponent } from './movies-list/header/add-movie-modal/add-movie-modal.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { MoviesComponent } from './movies/movies.component';
     ProfileModalComponent,
     MyRentalsComponent,
     MoviesComponent,
+    BubbleChartComponent,
+    AddMovieModalComponent,
   ],
   imports: [
     BrowserModule,

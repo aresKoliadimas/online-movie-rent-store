@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
 import { MyRentalsComponent } from './my-rentals/my-rentals.component';
 import { MoviesComponent } from './movies/movies.component';
+import { BubbleChartComponent } from './movies/bubble-chart/bubble-chart.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -21,6 +22,11 @@ const routes: Routes = [
   {
     path: 'my-rentals',
     component: MyRentalsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'chart',
+    component: BubbleChartComponent,
     canActivate: [AuthGuard],
   },
 ];
