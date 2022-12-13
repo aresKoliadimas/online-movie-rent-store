@@ -14,11 +14,13 @@ export class MyRentalsComponent implements OnInit {
   pageSizes: number[] = [];
   totalRentals = 0;
   onlyActive = false;
+  isAdmin = false;
 
   constructor(private service: MoviesService) {}
   // TODO: sorting
 
   ngOnInit(): void {
+    this.isAdmin = this.service.isAdmin();
     for (let i = 5; i <= 20; i += 5) {
       this.pageSizes.push(i);
     }

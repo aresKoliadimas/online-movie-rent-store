@@ -28,6 +28,7 @@
   <table class="data-table">
     <thead>
       <tr>
+        <th *ngIf="isAdmin"><button>User</button></th>
         <th><button>Title</button></th>
         <th><button>Rental Date</button></th>
         <th><button>Return Date</button></th>
@@ -46,6 +47,7 @@
                 }
         "
       >
+        <td *ngIf="isAdmin">{{ rentedMovie.user }}</td>
         <td>{{ rentedMovie.movie }}</td>
         <td>{{ rentedMovie.rental_date }}</td>
         <td>
@@ -58,7 +60,7 @@
         <td id="is-paid">
           {{ rentedMovie.is_paid ? "&#x2714;" : "&#x2610;" }}
         </td>
-        <td>
+        <td *ngIf="!isAdmin">
           <button
             (click)="onReturnMovie(rentedMovie.uuid)"
             [disabled]="rentedMovie.is_paid"
