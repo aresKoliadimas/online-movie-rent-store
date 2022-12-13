@@ -25,14 +25,14 @@
 .pagination-wrapper {
   display: flex;
   justify-content: space-around;
-  font-size: 4vw;
+  font-size: 3vw;
 }
 
 .my-pagination::ng-deep .ngx-pagination {
   .current {
     background: transparent;
     color: lightskyblue;
-    font-size: 5vw;
+    font-size: 3.75vw;
   }
 
   .disabled {
