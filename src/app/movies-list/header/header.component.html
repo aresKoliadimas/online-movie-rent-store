@@ -1,10 +1,28 @@
 <div class="header-wrapper">
   <h1 id="title">Online Movie Rent Store</h1>
-  <img
-    src="../../assets/user.png"
-    alt="Profile"
-    title="Profile"
-    id="profile"
-    (click)="openProfileModal()"
-  />
+  <div id="nav-icons">
+    <img
+      *ngIf="page === 'movies'"
+      src="../../assets/list.png"
+      alt="My Rentals"
+      title="My Rentals"
+      id="icon"
+      (click)="navigateToMyRentals()"
+    />
+    <img
+      *ngIf="page === 'rentals'"
+      src="../../assets/movie.png"
+      alt="All Movies"
+      title="All Movies"
+      id="icon"
+      (click)="navigateToAllMovies()"
+    />
+    <img
+      src="../../assets/user.png"
+      alt="Profile"
+      title="Profile"
+      id="icon"
+      (click)="openProfileModal()"
+    />
+  </div>
 </div>

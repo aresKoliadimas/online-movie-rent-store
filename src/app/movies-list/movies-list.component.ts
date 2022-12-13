@@ -14,7 +14,7 @@ export class MoviesListComponent implements OnInit {
   pageSizes: number[] = [];
   noOfMovies = 5;
 
-  constructor(private moviesService: MoviesService) {}
+  constructor(private service: MoviesService) {}
 
   ngOnInit(): void {
     for (let i = 5; i <= 100; i += 5) {
@@ -24,7 +24,7 @@ export class MoviesListComponent implements OnInit {
   }
 
   getMovies() {
-    this.moviesService
+    this.service
       .getMovies(this.page, this.noOfMovies)
       .subscribe((moviesList) => {
         this.moviesList = moviesList;

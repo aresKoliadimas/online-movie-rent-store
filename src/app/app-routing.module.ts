@@ -3,10 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './shared/auth.guard';
 import { LoginComponent } from './login/login.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
+import { MyRentalsComponent } from './my-rentals/my-rentals.component';
 
 const routes: Routes = [
-  { path: '', component: MoviesListComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+  { path: '', component: MoviesListComponent, canActivate: [AuthGuard] },
+  {
+    path: 'my-rentals',
+    component: MyRentalsComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({

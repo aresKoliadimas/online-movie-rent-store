@@ -1,0 +1,104 @@
+#spinner {
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.select-no-movies-wrapper {
+  margin-top: 10vh;
+  margin-right: 6vw;
+  display: flex;
+  justify-content: end;
+
+  label {
+    margin-right: 1vw;
+  }
+}
+
+#filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.table-container {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+.table-container {
+  margin: auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th button {
+  cursor: pointer;
+  display: block;
+  min-width: max-content;
+  padding: 0.5rem 1rem;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+td {
+  padding: 0.5rem 1rem;
+  text-align: left;
+
+  button {
+    margin: 0;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+    background: gray;
+    color: lightgrey;
+  }
+
+  button:hover:enabled {
+    filter: brightness(85%);
+  }
+}
+
+#is-paid {
+  text-align: center;
+}
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: space-around;
+  font-size: 4vw;
+}
+
+.my-pagination::ng-deep .ngx-pagination {
+  .current {
+    background: transparent;
+    color: lightskyblue;
+    font-size: 5vw;
+  }
+
+  .disabled {
+    color: rgb(30, 30, 30);
+  }
+
+  a {
+    color: white;
+    background: transparent;
+    :hover {
+      color: lightskyblue;
+    }
+  }
+}

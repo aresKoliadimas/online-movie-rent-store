@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header page="movies"></app-header>
 <div class="select-no-movies-wrapper" *ngIf="movies && movies.length">
   <label for="noOfMovies">No. of Movies: </label>
   <select name="noOfMovies" (change)="onNoMoviesChange($event)">

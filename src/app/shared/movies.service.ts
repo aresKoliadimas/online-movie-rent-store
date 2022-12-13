@@ -65,6 +65,14 @@ export class MoviesService {
     return !!localStorage.getItem('tokens');
   }
 
+  isAdmin() {
+    const tokens = localStorage.getItem('tokens');
+    if (tokens) {
+      const token = JSON.parse(tokens) as AuthResult;
+      return this.jwtService.decodeToken(token.access).is_admin;
+    }
+  }
+
   logout() {
     localStorage.removeItem('tokens');
   }
@@ -99,12 +107,16 @@ export class MoviesService {
 
   returnMovie(movieId: string) {
     const token = 'Bearer ' + this.getToken();
-    const url = this.endpoint + 'rent-store/profile/' + movieId;
-    return this.http.patch(url, {
-      headers: {
-        Authorization: token,
-      },
-    });
+    const url = this.endpoint + 'rent-store/rentals/' + movieId;
+    return this.http.patch(
+      url,
+      {},
+      {
+        headers: {
+          Authorization: token,
+        },
+      }
+    );
   }
 
   getRentals(
@@ -117,12 +129,12 @@ export class MoviesService {
     let params = new HttpParams();
     params = params.append('page', page);
     params = params.append('page_size', pageSize);
-    onlyActive ? (params = params.append('filter', 'only-active')) : null;
-    return this.http.get<RentalsList>(url, {
+    let urlParams = '';
+    onlyActive ? (urlParams = '?' + params.toString() + '&only-active') : null;
+    return this.http.get<RentalsList>(url + urlParams, {
       headers: {
         Authorization: token,
       },
-      params: params,
     });
   }
 

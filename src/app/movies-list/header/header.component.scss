@@ -12,12 +12,16 @@
     align-self: center;
   }
 
-  #profile {
+  #nav-icons {
     grid-area: prof;
-    cursor: pointer;
-    height: 40px;
-    justify-self: end;
-    align-self: center;
-    margin-right: 2vw;
+    display: flex;
+    justify-content: end;
+
+    #icon {
+      cursor: pointer;
+      height: 40px;
+      align-self: center;
+      margin-right: 2vw;
+    }
   }
 }

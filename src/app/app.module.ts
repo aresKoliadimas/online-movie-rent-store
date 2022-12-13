@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProfileModalComponent } from './movies-list/header/profile-modal/profile-modal.component';
+import { MyRentalsComponent } from './my-rentals/my-rentals.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ProfileModalComponent } from './movies-list/header/profile-modal/profil
     HeaderComponent,
     LoginComponent,
     ProfileModalComponent,
+    MyRentalsComponent,
   ],
   imports: [
     BrowserModule,

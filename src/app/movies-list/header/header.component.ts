@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
-import { MoviesService } from 'src/app/shared/movies.service';
 import { ProfileModalComponent } from './profile-modal/profile-modal.component';
 
 @Component({
@@ -10,7 +9,8 @@ import { ProfileModalComponent } from './profile-modal/profile-modal.component';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor(private modalCtrl: ModalController) {}
+  @Input() page!: string;
+  constructor(private modalCtrl: ModalController, private router: Router) {}
 
   async openProfileModal() {
     const modal = await this.modalCtrl.create({
@@ -19,5 +19,13 @@ export class HeaderComponent {
       backdropDismiss: true,
     });
     return await modal.present();
+  }
+
+  navigateToMyRentals() {
+    this.router.navigate(['/my-rentals']);
+  }
+
+  navigateToAllMovies() {
+    this.router.navigate(['/']);
   }
 }

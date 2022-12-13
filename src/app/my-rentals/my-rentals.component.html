@@ -1,0 +1,79 @@
+<app-header page="rentals"></app-header>
+<div id="spinner" *ngIf="!rentalsList">
+  <ion-spinner name="dots"></ion-spinner>
+</div>
+<div class="select-no-movies-wrapper" *ngIf="rentalsList && rentalsList.length">
+  <div id="filters">
+    <div>
+      <label for="noOfRentals">No. of Rentals: </label>
+      <select name="noOfRentals" (change)="onNoRentalsChange($event)">
+        <option *ngFor="let size of pageSizes" [ngValue]="size">
+          {{ size }}
+        </option>
+      </select>
+    </div>
+    <div>
+      <label for="onlyActive">Only Active Rentals: </label>
+      <select name="onlyActive" (change)="onOnlyActiveRentalsChange($event)">
+        <option>No</option>
+        <option>Yes</option>
+      </select>
+    </div>
+  </div>
+</div>
+<div class="table-container" *ngIf="rentalsList && rentalsList.length">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th><button>Title</button></th>
+        <th><button>Rental Date</button></th>
+        <th><button>Return Date</button></th>
+        <th><button>Is Paid</button></th>
+      </tr>
+    </thead>
+    <tbody id="table-content">
+      <tr
+        *ngFor="
+          let rentedMovie of rentalsList
+            | paginate
+              : {
+                  itemsPerPage: noOfRentals,
+                  currentPage: page,
+                  totalItems: totalRentals
+                }
+        "
+      >
+        <td>{{ rentedMovie.movie }}</td>
+        <td>{{ rentedMovie.rental_date }}</td>
+        <td>
+          {{
+            !rentedMovie.return_date
+              ? "Not yet returned"
+              : rentedMovie.return_date
+          }}
+        </td>
+        <td id="is-paid">
+          {{ rentedMovie.is_paid ? "&#x2714;" : "&#x2610;" }}
+        </td>
+        <td>
+          <button
+            (click)="onReturnMovie(rentedMovie.uuid)"
+            [disabled]="rentedMovie.is_paid"
+          >
+            Return
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="pagination-wrapper">
+  <pagination-controls
+    class="my-pagination"
+    *ngIf="rentalsList && rentalsList.length"
+    [responsive]="true"
+    previousLabel=""
+    nextLabel=""
+    (pageChange)="onPageChange($event)"
+  ></pagination-controls>
+</div>
