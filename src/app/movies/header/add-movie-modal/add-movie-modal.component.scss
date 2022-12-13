@@ -1,0 +1,48 @@
+#title {
+  display: flex;
+  justify-content: center;
+}
+
+div {
+  margin: 1%;
+}
+
+#dur-year {
+  display: flex;
+  justify-content: space-around;
+  gap: 1%;
+
+  ion-item {
+    flex-grow: 1;
+  }
+}
+
+#spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1%;
+  justify-content: space-between;
+}
+
+#footer {
+  display: flex;
+  justify-content: space-around;
+
+  button {
+    margin-top: 1vh;
+  }
+
+  #cancel:hover {
+    background: lightcoral;
+  }
+
+  #add:hover {
+    background: lightgreen;
+  }
+}

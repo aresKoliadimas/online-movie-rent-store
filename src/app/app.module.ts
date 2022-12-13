@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { IonicModule } from '@ionic/angular';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgChartsModule } from 'ng2-charts';
@@ -42,6 +42,7 @@ import { AddMovieModalComponent } from './movies/header/add-movie-modal/add-movi
     ReactiveFormsModule,
     NgxPaginationModule,
     NgChartsModule,
+    FormsModule,
   ],
   providers: [
     // FIXME: circural

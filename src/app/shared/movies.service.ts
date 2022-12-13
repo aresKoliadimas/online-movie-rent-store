@@ -110,7 +110,7 @@ export class MoviesService {
     });
   }
 
-  rentMovie(movieId: string) {
+  rentMovie(movieId: string | undefined) {
     const token = 'Bearer ' + this.getToken();
     const url = this.endpoint + 'rent-store/rentals/';
     return this.http.post(

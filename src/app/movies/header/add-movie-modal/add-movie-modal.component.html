@@ -1,2 +1,65 @@
-<p>add-movie-modal works!</p>
-<!-- TODO: functionality -->
+<div id="title">
+  <h1>Add A New Movie</h1>
+</div>
+<div>
+  <ion-item>
+    <ion-label position="floating" color="light">Title</ion-label>
+    <ion-input
+      placeholder="Enter the title"
+      [(ngModel)]="movie.title"
+    ></ion-input>
+  </ion-item>
+</div>
+<div>
+  <ion-item>
+    <ion-label position="floating" color="light">Description</ion-label>
+    <ion-textarea
+      placeholder="Type the description here"
+      [autoGrow]="true"
+      [(ngModel)]="movie.description"
+    >
+    </ion-textarea>
+  </ion-item>
+</div>
+<div id="dur-year">
+  <ion-item>
+    <ion-label position="floating" color="light">Duration</ion-label>
+    <ion-input
+      type="number"
+      placeholder="000"
+      [(ngModel)]="movie.duration"
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color="light">Release Year</ion-label>
+    <ion-input
+      type="number"
+      placeholder="1900"
+      [(ngModel)]="movie.pub_date"
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating" color="light">Rating</ion-label>
+    <ion-input
+      type="number"
+      placeholder="1"
+      [(ngModel)]="movie.rating"
+    ></ion-input>
+  </ion-item>
+</div>
+<div id="spinner" *ngIf="!categories.length">
+  <p>Fetching categories</p>
+  &nbsp;
+  <ion-spinner name="dots"></ion-spinner>
+</div>
+<div id="categories">
+  <div *ngFor="let category of categories">
+    <ion-checkbox color="light" [(ngModel)]="category.checked"></ion-checkbox
+    >&nbsp;
+    <ion-label>{{ category.category }}</ion-label>
+  </div>
+</div>
+<div id="footer">
+  <button id="cancel" (click)="cancel()" [disabled]="loading">Cancel</button>
+  <button id="add" (click)="addMovie()" [disabled]="loading">Add</button>
+</div>

@@ -21,14 +21,14 @@ export interface Category {
 
 export class Movie {
   constructor(
-    public uuid: string,
     public title: string,
     public pub_date: number,
     public duration: number,
     public rating: number,
     public description: string,
-    public poster_url: string,
-    public categories: string[]
+    public categories: string[],
+    public uuid?: string,
+    public poster_url?: string
   ) {
     this.uuid = uuid;
     this.title = title;

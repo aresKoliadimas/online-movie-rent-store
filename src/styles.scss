@@ -23,6 +23,19 @@ ion-content {
   --color: #fff;
 }
 
+ion-item {
+  --background: rgba(255, 255, 255, 0.5);
+  --border-radius: 10px;
+}
+
+ion-label {
+  --color: white;
+}
+
+ion-checkbox {
+  --checkmark-color: white;
+}
+
 button {
   margin-top: 50px;
   width: 100%;
