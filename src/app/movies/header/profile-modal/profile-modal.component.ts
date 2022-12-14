@@ -40,6 +40,7 @@ export class ProfileModalComponent implements OnInit {
           handler: (data) => {
             this.onDepositAmount(Number(data.amount));
             this.alert.dismiss();
+            this.getProfile();
           },
         },
       ],
