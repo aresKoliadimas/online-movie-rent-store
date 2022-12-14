@@ -17,6 +17,7 @@ export class MyRentalsComponent implements OnInit {
   onlyActive = false;
   isAdmin = false;
   sortedList!: RentedMovie[];
+  loading = false;
 
   constructor(private service: MoviesService) {}
 
@@ -39,9 +40,11 @@ export class MyRentalsComponent implements OnInit {
   }
 
   onReturnMovie(uuid: string) {
+    this.loading = true;
     this.service.returnMovie(uuid).subscribe((res) => {
       if (res) {
         this.getMyRentals(this.onlyActive);
+        this.loading = false;
       }
     });
   }
