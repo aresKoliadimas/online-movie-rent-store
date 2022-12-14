@@ -15,7 +15,7 @@ export class MovieDetailsModalComponent implements OnInit {
   stars = '';
   rentals!: RentedMovie[];
   isRented = false;
-  loading = false;
+  loading = true;
 
   constructor(
     private service: MoviesService,
@@ -44,6 +44,7 @@ export class MovieDetailsModalComponent implements OnInit {
       rentedMovies.includes(this.movie.title)
         ? (this.isRented = true)
         : (this.isRented = false);
+      this.loading = false;
     });
   }
 

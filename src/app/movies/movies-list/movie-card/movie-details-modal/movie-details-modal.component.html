@@ -30,7 +30,7 @@
     </div>
   </div>
   <footer>
-    <button (click)="onRentMovie()" [disabled]="isRented">
+    <button (click)="onRentMovie()" [disabled]="isRented || loading">
       <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
       <span *ngIf="!loading">
         {{ isRented ? "Already Rented" : "Rent" }}
