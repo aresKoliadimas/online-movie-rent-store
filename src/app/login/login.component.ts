@@ -10,6 +10,7 @@ import { MoviesService } from '../shared/movies.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  loading = false;
   form: FormGroup;
 
   constructor(
@@ -24,6 +25,7 @@ export class LoginComponent {
   }
 
   login() {
+    this.loading = true;
     const values = this.form.value;
     if (values.username && values.password) {
       const loginCreds: LoginCreds = {
@@ -32,6 +34,7 @@ export class LoginComponent {
       };
       this.service.login(loginCreds).subscribe(() => {
         this.router.navigate(['/movies']);
+        this.loading = false;
       });
     }
   }

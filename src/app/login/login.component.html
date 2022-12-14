@@ -14,6 +14,9 @@
     </div>
   </fieldset>
   <div>
-    <button (click)="login()">Login</button>
+    <button (click)="login()" [disabled]="loading">
+      <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+      <span *ngIf="!loading"> Login </span>
+    </button>
   </div>
 </form>
