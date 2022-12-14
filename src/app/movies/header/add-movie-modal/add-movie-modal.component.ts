@@ -38,6 +38,9 @@ export class AddMovieModalComponent implements OnInit {
 
   addMovie() {
     this.loading = true;
+    this.movie.categories = this.categories
+      .filter((category) => category.checked)
+      .map((category) => category.category);
     if (this.movie.title === '') {
       this.alert('Please enter a title');
       this.loading = false;
@@ -48,9 +51,6 @@ export class AddMovieModalComponent implements OnInit {
       this.loading = false;
       return;
     }
-    this.movie.categories = this.categories
-      .filter((category) => category.checked)
-      .map((category) => category.category);
     this.service.addMovie(this.movie).subscribe((res) => {
       if (res) {
         this.modal.dismiss();

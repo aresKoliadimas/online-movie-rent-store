@@ -38,11 +38,17 @@ div {
     margin-top: 1vh;
   }
 
-  #cancel:hover {
+  button:disabled {
+    cursor: not-allowed;
+    background: gray;
+    color: lightgrey;
+  }
+
+  #cancel:hover:enabled {
     background: lightcoral;
   }
 
-  #add:hover {
+  #add:hover:enabled {
     background: lightgreen;
   }
 }

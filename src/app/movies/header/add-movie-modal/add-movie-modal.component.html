@@ -61,5 +61,8 @@
 </div>
 <div id="footer">
   <button id="cancel" (click)="cancel()" [disabled]="loading">Cancel</button>
-  <button id="add" (click)="addMovie()" [disabled]="loading">Add</button>
+  <button id="add" (click)="addMovie()" [disabled]="loading">
+    <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+    <span *ngIf="!loading"> Add </span>
+  </button>
 </div>
