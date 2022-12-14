@@ -1,5 +1,8 @@
 <app-header page="movies"></app-header>
-<div id="chart-wrapper">
+<div id="spinner" *ngIf="!years.length">
+  <ion-spinner name="dots"></ion-spinner>
+</div>
+<div id="chart-wrapper" *ngIf="years && years.length">
   <canvas
     baseChart
     [datasets]="bubbleChartDatasets"

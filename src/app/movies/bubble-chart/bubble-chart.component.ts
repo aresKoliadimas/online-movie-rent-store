@@ -1,19 +1,48 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration } from 'chart.js';
+import { Movie, MoviesList } from 'src/app/shared/models';
+import { MoviesService } from 'src/app/shared/movies.service';
 
 @Component({
   selector: 'app-bubble-chart',
   templateUrl: './bubble-chart.component.html',
   styleUrls: ['./bubble-chart.component.scss'],
 })
-export class BubbleChartComponent {
+export class BubbleChartComponent implements OnInit {
+  years: any[] = [];
+
+  constructor(private service: MoviesService) {}
+
+  ngOnInit(): void {
+    this.service.getMovies(1, 1000, 'All').subscribe((movies: MoviesList) => {
+      movies.results.forEach((movie: Movie) => {
+        this.years.push({ x: movie.pub_date, y: movie.rating, r: 0 });
+      });
+      this.years.map((movie) => {
+        this.years.forEach((m) => {
+          if (movie.x === m.x && movie.y === m.y) {
+            movie.r++;
+          }
+        });
+      });
+      this.years = this.years.filter(
+        (value, index, self) =>
+          index ===
+          self.findIndex(
+            (t) => t.x === value.x && t.y === value.y && t.r === value.r
+          )
+      );
+      console.log(this.years.sort((a, b) => a.x - b.x));
+    });
+  }
+
   public bubbleChartOptions: ChartConfiguration<'bubble'>['options'] = {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
       x: {
-        min: 0,
-        max: 30,
+        min: 1900,
+        max: 2022,
         grid: {
           color: 'rgba(255,255,255, 0.2)',
         },
@@ -24,9 +53,13 @@ export class BubbleChartComponent {
       },
       y: {
         min: 0,
-        max: 30,
+        max: 10,
         grid: {
           color: 'rgba(255,255,255, 0.2)',
+        },
+        title: {
+          text: 'Rating',
+          display: true,
         },
       },
     },
@@ -36,12 +69,7 @@ export class BubbleChartComponent {
   public bubbleChartDatasets: ChartConfiguration<'bubble'>['data']['datasets'] =
     [
       {
-        data: [
-          { x: 10, y: 10, r: 10 },
-          { x: 15, y: 5, r: 15 },
-          { x: 26, y: 12, r: 23 },
-          { x: 7, y: 8, r: 8 },
-        ],
+        data: this.years,
         backgroundColor: 'rgb(255, 255, 255)',
       },
     ];
