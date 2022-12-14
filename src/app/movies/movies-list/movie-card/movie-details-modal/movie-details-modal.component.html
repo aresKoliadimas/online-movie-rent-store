@@ -2,7 +2,7 @@
   <header>
     <div id="header-wrapper">
       <h1>{{ movie.title }}</h1>
-      <button (click)="onModalClose()" title="Close">X</button>
+      <!-- <button (click)="onModalClose()" title="Close">X</button> -->
     </div>
     <div id="num-details">
       <span>{{ movie.pub_date }}</span> &nbsp;&#x2022;&nbsp;
@@ -31,7 +31,10 @@
   </div>
   <footer>
     <button (click)="onRentMovie()" [disabled]="isRented">
-      {{ isRented ? "Already Rented" : "Rent" }}
+      <ion-spinner *ngIf="loading" name="crescent"></ion-spinner>
+      <span *ngIf="!loading">
+        {{ isRented ? "Already Rented" : "Rent" }}
+      </span>
     </button>
   </footer>
 </ion-content>

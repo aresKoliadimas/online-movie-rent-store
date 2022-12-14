@@ -15,6 +15,7 @@ export class MovieDetailsModalComponent implements OnInit {
   stars = '';
   rentals!: RentedMovie[];
   isRented = false;
+  loading = false;
 
   constructor(
     private service: MoviesService,
@@ -22,14 +23,19 @@ export class MovieDetailsModalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.isMovieRented();
     this.hours = Math.floor(this.movie.duration / 60);
     this.stars = this.star.repeat(Math.floor(this.movie.rating));
-    this.isMovieRented();
   }
 
   onRentMovie() {
-    this.service.rentMovie(this.movie.uuid).subscribe();
-    this.modalCtrl.dismiss();
+    this.loading = true;
+    this.service.rentMovie(this.movie.uuid).subscribe((res) => {
+      if (res) {
+        this.loading = false;
+        this.modalCtrl.dismiss();
+      }
+    });
   }
 
   isMovieRented() {

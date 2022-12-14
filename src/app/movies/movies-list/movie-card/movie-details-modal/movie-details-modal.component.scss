@@ -18,20 +18,20 @@ header {
     display: flex;
   }
 
-  button {
-    cursor: pointer;
-    margin-top: 0;
-    padding: 0;
-    background: rgb(255, 196, 196);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-weight: 800;
-  }
+  // button {
+  //   cursor: pointer;
+  //   margin-top: 0;
+  //   padding: 0;
+  //   background: rgb(255, 196, 196);
+  //   width: 40px;
+  //   height: 40px;
+  //   border-radius: 50%;
+  //   font-weight: 800;
+  // }
 
-  button:hover {
-    background: rgb(255, 160, 160);
-  }
+  // button:hover {
+  //   background: rgb(255, 160, 160);
+  // }
 }
 
 #details-wrapper {
@@ -51,8 +51,13 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+
   h2 {
     margin: 0;
+  }
+
+  p {
+    font-size: 0.8em;
   }
 }
 
@@ -79,6 +84,7 @@ footer {
   }
 
   button:hover:enabled {
+    color: lightseagreen;
     filter: brightness(85%);
   }
 }

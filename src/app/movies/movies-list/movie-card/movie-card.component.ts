@@ -17,7 +17,7 @@ export class MovieCardComponent {
     const modal = await this.modalCtrl.create({
       component: MovieDetailsModalComponent,
       cssClass: 'movie-modal',
-      backdropDismiss: false,
+      backdropDismiss: true,
       componentProps: {
         movie: movie,
       },
