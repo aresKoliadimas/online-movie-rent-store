@@ -32,7 +32,6 @@ export class BubbleChartComponent implements OnInit {
             (t) => t.x === value.x && t.y === value.y && t.r === value.r && t.x
           )
       );
-      console.log(this.years.sort((a, b) => a.x - b.x));
     });
   }
 
