@@ -1,5 +1,10 @@
 <div class="movie-card-wrapper" (click)="openMovieModal(movie)">
   <div class="poster-wrapper">
-    <img [src]="movie.poster_url" width="200px" height="300px" />
+    <img
+      [src]="movie.poster_url"
+      onerror="this.onerror=null; this.src='../../../../assets/film-poster-placeholder.png'"
+      width="200px"
+      height="300px"
+    />
   </div>
 </div>
