@@ -29,20 +29,20 @@
   <h2>There are no active rentals</h2>
 </div>
 <div class="table-container" *ngIf="rentalsList && rentalsList.length">
-  <table class="data-table">
+  <table class="data-table" matSort (matSortChange)="sortData($event)">
     <thead>
       <tr>
-        <th *ngIf="isAdmin"><button>User</button></th>
-        <th><button>Title</button></th>
-        <th><button>Rental Date</button></th>
-        <th><button>Return Date</button></th>
-        <th><button>Paid</button></th>
+        <th *ngIf="isAdmin" mat-sort-header="user">User</th>
+        <th mat-sort-header="title">Title</th>
+        <th mat-sort-header="rental-date">Rental Date</th>
+        <th mat-sort-header="return-date">Return Date</th>
+        <th mat-sort-header="paid">Paid</th>
       </tr>
     </thead>
     <tbody id="table-content">
       <tr
         *ngFor="
-          let rentedMovie of rentalsList
+          let rentedMovie of sortedList
             | paginate
               : {
                   itemsPerPage: noOfRentals,

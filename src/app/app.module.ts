@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './shared/auth.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NgChartsModule } from 'ng2-charts';
+import { MatSortModule } from '@angular/material/sort';
 
 import { MyRentalsComponent } from './movies/my-rentals/my-rentals.component';
 import { MoviesComponent } from './movies/movies.component';
@@ -19,6 +20,7 @@ import { MovieDetailsModalComponent } from './movies/movies-list/movie-card/movi
 import { HeaderComponent } from './movies/header/header.component';
 import { ProfileModalComponent } from './movies/header/profile-modal/profile-modal.component';
 import { AddMovieModalComponent } from './movies/header/add-movie-modal/add-movie-modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { AddMovieModalComponent } from './movies/header/add-movie-modal/add-movi
     NgxPaginationModule,
     NgChartsModule,
     FormsModule,
+    MatSortModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     {

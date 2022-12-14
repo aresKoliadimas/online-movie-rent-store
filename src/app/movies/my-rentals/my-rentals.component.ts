@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Sort } from '@angular/material/sort';
 import { RentedMovie } from '../../shared/models';
 import { MoviesService } from '../../shared/movies.service';
 
@@ -15,9 +16,9 @@ export class MyRentalsComponent implements OnInit {
   totalRentals = 0;
   onlyActive = false;
   isAdmin = false;
+  sortedList!: RentedMovie[];
 
   constructor(private service: MoviesService) {}
-  // TODO: sorting
 
   ngOnInit(): void {
     this.isAdmin = this.service.isAdmin();
@@ -33,6 +34,7 @@ export class MyRentalsComponent implements OnInit {
       .subscribe((result) => {
         this.totalRentals = result.count;
         this.rentalsList = result.results;
+        this.sortedList = this.rentalsList.slice();
       });
   }
 
@@ -50,6 +52,7 @@ export class MyRentalsComponent implements OnInit {
   }
 
   onNoRentalsChange(event: any) {
+    this.page = 1;
     this.noOfRentals = Number(event.target.value);
     this.getMyRentals(this.onlyActive);
   }
@@ -63,5 +66,44 @@ export class MyRentalsComponent implements OnInit {
       this.onlyActive = false;
       this.getMyRentals(this.onlyActive);
     }
+  }
+
+  sortData(sort: Sort) {
+    const data = this.rentalsList.slice();
+    if (!sort.active || sort.direction === '') {
+      this.sortedList = data;
+      return;
+    }
+
+    this.sortedList = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'user':
+          return this.compare(a.user, b.user, isAsc);
+        case 'title':
+          return this.compare(a.movie, b.movie, isAsc);
+        case 'rental-date':
+          return this.compare(a.rental_date, b.rental_date, isAsc);
+        case 'return-date':
+          return this.compare(
+            a.return_date ? a.return_date : '0',
+            b.return_date ? b.return_date : '0',
+            isAsc
+          );
+
+        case 'paid':
+          return this.compare(a.is_paid, b.is_paid, isAsc);
+        default:
+          return 0;
+      }
+    });
+  }
+
+  compare(
+    a: number | string | boolean,
+    b: number | string | boolean,
+    isAsc: boolean
+  ) {
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
   }
 }

@@ -48,16 +48,11 @@ table {
 table {
   border-collapse: collapse;
   width: 100%;
+  margin-top: 5vh;
 }
 
-th button {
-  cursor: pointer;
-  display: block;
-  min-width: max-content;
-  padding: 0.5rem 1rem;
-  position: relative;
-  text-align: center;
-  width: 100%;
+th {
+  font-size: 2em;
 }
 
 tbody tr {
