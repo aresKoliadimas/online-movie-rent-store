@@ -45,12 +45,11 @@ import { AddMovieModalComponent } from './movies/header/add-movie-modal/add-movi
     FormsModule,
   ],
   providers: [
-    // FIXME: circural
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: AuthInterceptor,
-    //   multi: true,
-    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })
