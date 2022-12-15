@@ -51,6 +51,7 @@ export class MoviesListComponent implements OnInit {
   }
 
   onSelectCategory(event: any) {
+    this.page = 1;
     const category = event.target.value;
     this.getMovies(category);
   }
